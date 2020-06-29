@@ -3,7 +3,11 @@ body
   margin:0;
   padding:0;
   background-image: url(../photo/wlop1.png);
-  background-repeat: no-repeat;  
+  background-repeat: no-repeat; 
+  background-position: center center; 
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #CCCCCC;
 }
 .bt1
 {
