@@ -1,0 +1,692 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-fences-math .MathJax_SVG_Display, .md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: visible; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; zoom: 90%; }
+#math-inline-preview-content { zoom: 1.1; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-require-zoom-fix foreignobject { font-size: var(--mermaid-font-zoom); }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-math .MathJax_SVG_Display { margin-top: 8px; cursor: default; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+
+
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); background: inherit; white-space: nowrap; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 30px; z-index: 3; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: none !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; overflow-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { overflow-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right: 30px solid transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+span.cm-underlined { text-decoration: underline; }
+span.cm-strikethrough { text-decoration: line-through; }
+.cm-tw-syntaxerror { color: rgb(255, 255, 255); background-color: rgb(153, 0, 0); }
+.cm-tw-deleted { text-decoration: line-through; }
+.cm-tw-header5 { font-weight: 700; }
+.cm-tw-listitem:first-child { padding-left: 10px; }
+.cm-tw-box { border-style: solid; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-color: inherit; border-top-width: 0px !important; }
+.cm-tw-underline { text-decoration: underline; }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+ :root {--mermaid-font-zoom:1.23958em ;} 
+</style><title>JVM</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><p>&nbsp;</p><h1 id='1java内存区域'><span>1.Java内存区域</span></h1><p>&nbsp;</p><h2 id='11运行时数据区域'><span>1.1运行时数据区域</span></h2><p><img src="JVM.assets/51f4a70e8f951c8c3d9c0eee21e2157c_r.jpg" alt="preview" style="zoom:150%;" /></p><h3 id='1程序计数器-program-counter-register'><strong><span>1.程序计数器 </span><em><span>program counter register</span></em></strong></h3><p><span>线程私有</span></p><p><strong><span>为什么是线程私有？</span></strong></p><p><em><span>Java虚拟机的多线程是通过线程轮流切换并分配处理器执行时间的方式来实现</span></em><span>，</span></p><p><span> 也就是说，在同一时刻一个处理器内核只会执行一条线程，处理器切换线程时并不会记录上一个线程执行到哪个位置，所以为了线程切换后依然能恢复到原位，每条线程都需要有各自独立的程序计数器</span></p><p><strong><span>主要作用是：</span></strong></p><p><strong><span>当前线程所执行的字节码的行号指示器（每个指令码前面都有一个行号，可以把它看作当前线程执行到某一行代码位置的一个标识）</span></strong></p><p><strong><span>字节码解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令</span></strong></p><ul><li><span>如果线程再执行java方法，记录正在执行的虚拟机字节码指令的地址；</span></li><li><span>如果执行Native方法，为空（Undefined)</span></li></ul><p><span>是java内存规范中唯一没有规定任何 </span><code>OutOfMemoryError</code><span> 情况的区域</span></p><p><strong><span>？为什么：</span></strong><span>程序计数器存储的是字节码文件的行号，而这个范围是可知晓的，在一开始分配内存时就可以分配一个绝对不会溢出的内存。</span></p><p><strong><span>为什么执行Native方法，值为空？</span></strong></p><p><span>Native方法大多是通过C实现并未编译成需要执行的字节码指令，也就不需要去存储字节码文件的行号了。</span></p><p>&nbsp;</p><h3 id='2java虚拟机栈--jvm-stacks'><span>2.java虚拟机栈  </span><em><span>JVM Stacks</span></em></h3><p><strong><span>线程私有，生命周期和线程相同</span></strong></p><p><span>每个java方法被执行时都会创建一个</span><strong><span>栈帧（Stack Frame）</span></strong></p><p><span>用于存储</span><strong><span>局部变量表、操作数栈、动态链接、方法出口</span></strong><span>等信息。</span></p><p><span>每个方法被调用到执行完成的过程，对应一个栈帧在虚拟机栈从入栈到出栈的过程</span></p><p><span>线程运行过程中，只有一个栈帧是处于活跃状态，称为“当前活跃栈帧”，当前活动栈帧始终是虚拟机栈的栈顶元素</span></p><p><img src="JVM.assets/image-20210507211413366.png" alt="image-20210507211413366" style="zoom:80%;" /><span> </span></p><p><span>局部变量表：</span></p><ul><li><p><span>编译期已知的各种基本数据类型</span></p></li><li><p><span>对象引用</span></p><p><span>局部变量表所需的内存空间在编译期间完成分配，在运行期间不会改变</span></p></li></ul><p><span>两种异常情况：</span></p><ul><li><span>线程请求的栈深度大于虚拟机允许的深度，</span><code>StackOverFlowError</code></li><li><span>如果虚拟机内存可以动态扩展，扩展时无法申请到足够的内存：</span><code>OutOfMemoryError</code></li></ul><p>&nbsp;</p><h3 id='3本地方法栈-native-method-stacks'><span>3.本地方法栈 </span><em><span>Native Method Stacks</span></em></h3><p><span>与JVM Stacks类似，</span><strong><span>私有</span></strong></p><ul><li><span>java虚拟机栈 为java方法服务</span></li><li><span>本地方法栈 为虚拟机用到的Native方法服务</span></li></ul><p><span>native方法：一个Native Method就是一个java调用非java代码的接口</span></p><p><span>在定义一个native method时，并不提供实现体（有些像定义一个java interface），因为其实现体是由非java语言在外面实现的</span></p><p>&nbsp;</p><h3 id='4java-堆--java-heap'><span>4.Java 堆  </span><em><span>Java Heap</span></em></h3><p><strong><span>所有线程共享的一块内存区域，Java虚拟机启动时创建</span></strong></p><p><span>用来存放对象实例：</span><strong><span>所有的对象实例和数组都要在堆上分配内存</span></strong></p><p><span>堆可以处于物理上不连续的内存空间里，只要逻辑上连续</span></p><p><span>如果堆中没有内存进行实例分配或推无法再拓展时：</span><code>OutOfMemoryError</code></p><p>&nbsp;</p><p><strong><span>字符串常量池</span></strong></p><p><em><span>String Intern Pool， 在堆中（1.7后）</span></em></p><p>&nbsp;</p><p>&nbsp;</p><p><strong><span>堆是GC管理的主要区域</span></strong></p><p><span>新生代、老年代</span></p><p><span>新生代细分：Eden空间、【From空间、To空间】</span></p><p><span>                                            【Survivor空间】</span></p><p>&nbsp;</p><h3 id='5方法区-method-area'><span>5.方法区 </span><em><span>Method Area</span></em></h3><p><strong><span>线程共享区域</span></strong></p><p><strong><span>存储已被JVM加载的类信息、静态变量、常量、即时编译器编译后的代码</span></strong></p><p><span>方法区无法满足内存分配需求时：</span><code>OutOfMemoryError</code></p><p><strong><span>JDK 1.8后，改为元空间 Metaspace</span></strong><span> </span></p><p><span>Mataspace：实际上是本地内存</span></p><ul><li><p><strong><span>Klass Metaspace:</span></strong><span>就是用来存klass的，klass是我们熟知的class文件在jvm里的运行时数据结构</span></p><p><span>	</span><span>（A.class其实是存在heap里的，是java.lang.Class的一个对象实例）</span></p></li><li><p><strong><span>NoKlass Metaspace</span></strong><span>:专门来存klass相关的其他的内容，比如method，constantPool等</span></p></li></ul><p>&nbsp;</p><h3 id='6运行时常量池-runtime-constant-pool'><span>6.运行时常量池 </span><em><span>Runtime Constant Pool</span></em></h3><p><em><span>方法区的一部分</span></em></p><p><span>Class文件除了类的版本、字段、方法、接口等描述信息外，还有一项是常量池，用来存放编译期生成的</span><strong><span>各种字面量和符号引用</span></strong><span>，这部分在类加载后存放在方法区的运行时常量池中。</span></p><p>&nbsp;</p><h3 id='7直接内存-direct-merory'><span>7.直接内存 </span><em><span>Direct Merory</span></em></h3><p><span>不是虚拟机运行时数据区的一部分，也不是《Java虚拟机规范》中定义的内存区域。</span></p><p><strong><span>直接内存是在 Java 堆外的、直接向系统申请的内存区间。</span></strong></p><p><span>来源于NIO（New Input/Output)类，使用Native函数库直接分配堆外内存，然后通过存储在Java堆中的</span><code>DirectByteBuffer</code><span>对象作为这块内存的引用进行操作</span></p><p><span>通常，访问直接内存的速度会优于 Java 堆。即读写性能高。</span></p><ul><li><span>因此出于性能考虑，读写频繁的场合可能会考虑使用直接内存。</span></li><li><span>Java 的 NIO 库允许 Java 程序使用直接内存，用于数据缓冲区</span></li></ul><p><span>使用下列代码，直接分配本地内存空间：</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="java"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="java"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.29412px; left: 8.02942px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable-3">int</span> <span class="cm-variable">BUFFER</span> <span class="cm-operator">=</span> <span class="cm-number">1024</span> <span class="cm-operator">*</span> <span class="cm-number">1024</span> <span class="cm-operator">*</span> <span class="cm-number">1024</span>; <span class="cm-comment">// 1GB</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">ByteBuffer</span> <span class="cm-variable">byteBuffer</span> <span class="cm-operator">=</span> <span class="cm-variable">ByteBuffer</span>.<span class="cm-variable">allocateDirect</span>(<span class="cm-variable">BUFFER</span>);</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 45px;"></div><div class="CodeMirror-gutters" style="display: none; height: 45px;"></div></div></div></pre><p>&nbsp;</p><h2 id='12-堆和栈的区别'><strong><span>1.2 堆和栈的区别</span></strong></h2><ol><li><p><span>内存分配</span></p><ul><li><p><span>栈：物理地址分配是连续的。所以性能快</span></p><p><span>栈是连续的，所以分配的内存大小要在</span><code>编译期</code><span>就确认，大小是固定的。</span></p></li><li><p><span>堆：物理地址分配对对象是不连续的。因此性能慢些。在GC的时候也要考虑到不连续的分配，所以有各种算法</span></p><p><span>所以分配的内存是在</span><code>运行期</code><span>确认的，因此大小不固定。</span></p></li></ul></li><li><p><span>存放的内容</span></p><ul><li><span>栈：存放局部变量和方法调用</span></li><li><span>堆：存放对象</span></li></ul></li><li><p><span>可见性</span></p><ul><li><span>栈：线程私有</span></li><li><span>堆：线程公有</span></li></ul></li><li><p><span> 异常</span></p><ul><li><p><span>栈：线程请求的栈深度大于虚拟机允许的深度，</span><code>StackOverFlowError</code></p><p><span>如果虚拟机内存可以动态扩展，扩展时无法申请到足够的内存：</span><code>OutOfMemoryError</code></p></li><li><p><span>堆：如果堆中没有内存进行实例分配或推无法再拓展时：</span><code>OutOfMemoryError</code></p></li></ul></li></ol><p>&nbsp;</p><h2 id='13-对象访问-例子）'><span>1.3 对象访问 （例子）</span></h2><p><span>对于代码</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="java"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="java"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.29412px; left: 8.02942px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable-3">Object</span> <span class="cm-variable">obj</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable-3">Object</span>();</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="display: none; height: 23px;"></div></div></div></pre><p><span>假设这段代码出现在方法体里</span></p><p><code>Object obj</code><span>这部分的语义会被反应到JVM栈的局部变量表里，作为一个reference类型数据出现</span></p><p><code>new Object()</code><span>这部分的语义会反映到Java堆里，形成一块存储了</span><code>Object</code><span>类型所有实例数据值的结构化内存</span></p><p><strong><span>Blog:</span></strong><span> </span><a href='https://zhuanlan.zhihu.com/p/98337005'><span>小白都能看得懂的</span><em><span>Java</span></em><span>虚拟机</span><em><span>内存</span></em><span>模型</span></a><span> 这个写的太好了！</span></p><p><span>配合代码看：</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="java" style="break-inside: unset;"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="java"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.29412px; left: 8.02942px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">public</span> <span class="cm-keyword">class</span> <span class="cm-def">Math</span> {</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">public</span> <span class="cm-keyword">static</span> <span class="cm-variable-3">int</span> <span class="cm-variable">initData</span> <span class="cm-operator">=</span> <span class="cm-number">666</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">public</span> <span class="cm-keyword">static</span> <span class="cm-variable">User</span> <span class="cm-variable">user</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">User</span>();</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">public</span> <span class="cm-variable-3">int</span> <span class="cm-variable">compute</span>() {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable-3">int</span> <span class="cm-variable">a</span> <span class="cm-operator">=</span> <span class="cm-number">1</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable-3">int</span> <span class="cm-variable">b</span> <span class="cm-operator">=</span> <span class="cm-number">2</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable-3">int</span> <span class="cm-variable">c</span> <span class="cm-operator">=</span> (<span class="cm-variable">a</span><span class="cm-operator">+</span><span class="cm-variable">b</span>) <span class="cm-operator">*</span> <span class="cm-number">10</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable">c</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">public</span> <span class="cm-keyword">static</span> <span class="cm-variable-3">void</span> <span class="cm-variable">main</span>(<span class="cm-variable-3">String</span>[] <span class="cm-variable">args</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">Math</span> <span class="cm-variable">math</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">Math</span>();</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">math</span>.<span class="cm-variable">compute</span>();</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">System</span>.<span class="cm-variable">out</span>.<span class="cm-variable">println</span>(<span class="cm-string">"test"</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 384px;"></div><div class="CodeMirror-gutters" style="display: none; height: 384px;"></div></div></div></pre><h3 id='1）java方法栈'><span>（1）Java方法栈</span></h3><p><img src="JVM.assets/image-20210507221320257.png" alt="image-20210507221320257" style="zoom: 67%;" /><span> </span></p><p><span>执行main方法中的第一行代码是，栈中会分配main()方法的栈帧，并存储math局部变量，接着执行compute()方法，那么栈又会分配compute()的栈帧区域。</span></p><h3 id='2）栈帧'><span>（2）栈帧 </span></h3><ul><li><strong><span>局部变量表</span></strong></li><li><strong><span>操作数栈</span></strong></li><li><strong><span>动态链接</span></strong></li><li><strong><span>方法出口</span></strong></li></ul><p><span>使用javap -c命令将class文件反编译并输出到TXT文件中</span></p><p><span>其中的compute（）方法：</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="java" style="break-inside: unset;"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="java"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.29412px; left: 7.99158px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> <span class="cm-keyword">public</span> <span class="cm-variable-3">int</span> <span class="cm-def">compute</span>();</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">Code</span>:</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; <span class="cm-number">0</span>: <span class="cm-variable">iconst_1</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; <span class="cm-number">1</span>: <span class="cm-variable">istore_1</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; <span class="cm-number">2</span>: <span class="cm-variable">iconst_2</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; <span class="cm-number">3</span>: <span class="cm-variable">istore_2</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; <span class="cm-number">4</span>: <span class="cm-variable">iload_1</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; <span class="cm-number">5</span>: <span class="cm-variable">iload_2</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; <span class="cm-number">6</span>: <span class="cm-variable">iadd</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; <span class="cm-number">7</span>: <span class="cm-variable">bipush</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-number">10</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; <span class="cm-number">9</span>: <span class="cm-variable">imul</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-number">10</span>: <span class="cm-variable">istore_3</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-number">11</span>: <span class="cm-variable">iload_3</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-number">12</span>: <span class="cm-variable">ireturn</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 316px;"></div><div class="CodeMirror-gutters" style="display: none; height: 316px;"></div></div></div></pre><p><code>0：iconst_1</code><span>：将1压入操作数栈</span></p><p><img src="JVM.assets/image-20210507221956236.png" alt="image-20210507221956236" style="zoom: 50%;" /><span> </span></p><p><code>1: istore_1</code><span>：局部变量1，在我们代码中也就是第一个局部变量a，先给a在局部变量表中分配内存，然后将int类型的值，也就是目前唯一的一个1存入局部变量a</span></p><p><img src="JVM.assets/image-20210507222103081.png" alt="image-20210507222103081" style="zoom:50%;" /><span> </span></p><p><code>2: iconst_2</code><span>：将int类型常量2压入操作数栈</span>
+<code>3: istore_2</code><span>：将int类型值存入局部变量2</span></p><p><img src="JVM.assets/image-20210507222203467.png" alt="image-20210507222203467" style="zoom:50%;" /><span> </span></p><p><code>4: iload_1</code>
+<code>5: iload_2</code></p><p><span>将局部变量1和2，也就是a和b的值装载到操作数栈中</span></p><p><img src="JVM.assets/image-20210507222313742.png" alt="image-20210507222313742" style="zoom:50%;" /><span> </span></p><p><code>6: iadd</code><span> ：执行int类型的加法：iadd指令一执行，会将操作数栈中的1和2依次从栈底弹出并相加，然后把运算结果3在压入操作数栈底。</span></p><p><img src="JVM.assets/image-20210507222525889.png" alt="image-20210507222525889" style="zoom:50%;" /><span> </span></p><p><code>7: bipush        10</code><span>:将10压入栈</span></p><p><img src="JVM.assets/image-20210507222542106.png" alt="image-20210507222542106" style="zoom:50%;" /><span> </span></p><p><code>9: imul</code><span>：执行int类型的乘法：将3和10弹栈，将结果30压入栈</span></p><p><img src="JVM.assets/image-20210507222605956.png" alt="image-20210507222605956" style="zoom:50%;" /><span> </span></p><p><code>10: istore_3</code><span>：将int类型值存入局部变量3，将30存入局部变量3，也就是c</span></p><p><img src="JVM.assets/image-20210507222701161.png" alt="image-20210507222701161" style="zoom:50%;" /><span> </span></p><p><code>11: iload_3</code><span>：从局部变量3中装载int类型值</span>
+<code>12: ireturn</code><span>：将操作数栈中的30返回</span></p><p><strong><span>方法出口：储存了当前要回到的位置，那么当compute()方法执行完之后，会根据方法出口中存储的相关信息回到main()方法的相应位置。</span></strong></p><p><span>main方法中的有一个局部变量：math，</span><strong><span>存储的是堆中math对象在堆中的内存地址</span></strong></p><h3 id='3）方法区'><span>（3）方法区</span></h3><p><span>方法区：元空间（</span><code>MetaSpace</code><span>）</span></p><p><span>存放 </span><strong><span>常量、静态变量、类元信息</span></strong></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="java"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="java"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.29412px; left: 8.02942px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre>x</pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">public</span> <span class="cm-keyword">static</span> <span class="cm-variable-3">int</span> <span class="cm-variable">initData</span> <span class="cm-operator">=</span> <span class="cm-number">666</span>;</span></pre></div><div class="" style="position: relative;"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">public</span> <span class="cm-keyword">static</span> <span class="cm-variable">User</span> <span class="cm-variable">user</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">User</span>();</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 45px;"></div><div class="CodeMirror-gutters" style="display: none; height: 45px;"></div></div></div></pre><p><span>这个user静态变量放在方法区，new的User存在堆中</span></p><p><span>到这里我们就能意识到栈，堆，方法区之间都是有联系的。</span></p><p><img src="JVM.assets/image-20210507223329736.png" alt="image-20210507223329736" style="zoom:50%;" /><span> </span></p><h3 id='4）对象'><span>（4）对象</span></h3><p><span>对象在内存中的存储：</span></p><ul><li><strong><span>对象头 </span><code>Header</code></strong></li><li><strong><span>实例数据 </span><code>Instance Data</code></strong></li><li><strong><span>对齐填充 </span><code>Padding</code></strong><span> </span></li></ul><p><img src="JVM.assets/image-20210507223549322.png" alt="image-20210507223549322" style="zoom:80%;" /><span> </span></p><ul><li><p><span>对象头</span></p><ul><li><p><span>Mark Word：</span></p><p><span>用于存储对象自身的运行时数据，如</span><strong><span>哈希码、GC分代年龄、锁状态标志、线程持有的锁</span></strong><span>等</span></p></li><li><p><span>Klass Point</span></p><p><span>对象指向它的类元数据的指针，虚拟机通过这个指针来确定对象是那个类的实例</span></p></li><li><p><span>数组长度Length（对于数组对象）</span></p></li></ul></li><li><p><span>实例数据</span></p><p><span>对象真正存储的有效信息，也是在程序代码中所定义的各种类型的字段内容。无论是从父类继承下来的，还是在子类中定义的，都需要记录起来。</span></p></li><li><p><span>对其填充</span></p><p><span>并不是必然存在的，也没有特别的含义，它仅仅起着占位符的作用。由于HotSpot VM的自动内存管理系统要求对象起始地址必须是8字节的整数倍，换句话说，就是对象的大小必须是8字节的整数倍。而对象头部分正好是8字节的倍数（1倍或者2倍），因此，当对象实例数据部分没有对齐时，就需要通过对齐填充来补全。</span></p></li></ul><p><img src="JVM.assets/image-20210613230623156.png" alt="image-20210613230623156" style="zoom:67%;" /><span> </span></p><p>&nbsp;</p><p><img src="JVM.assets/image-20210507224131739.png" alt="image-20210507224131739" style="zoom:80%;" /><span> </span></p><h3 id='对象访问方式'><span>对象访问方式</span></h3><p><span>怎么从栈中的reference找到堆中对象的具体地址？</span></p><ol start='' ><li><p><span>使用句柄</span></p><p><span>堆中划分一块内存作为句柄池，reference存的是对象的句柄地址，而句柄中包含了对象实例数据和类型数据各自的具体地址信息</span></p><p><img src="JVM.assets/image-20210507225039007.png" alt="image-20210507225039007" style="zoom: 50%;" /><span> </span></p></li><li><p><span>直接指针</span></p><p><span>reference存的直接就是对象地址</span></p><p><img src="JVM.assets/image-20210507225132452.png" alt="image-20210507225132452" style="zoom: 50%;" /><span> </span></p><p><span>主要使用第二种，这里的到对象类型数据的指针也就是上面说的Klass point</span></p></li></ol><h3 id='5）本地方法栈'><span>（5）本地方法栈</span></h3><p><span>例：</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="java"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="java"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.29412px; left: 8.02942px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">new</span> <span class="cm-variable">Thread</span>().<span class="cm-variable">start</span>();</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="display: none; height: 23px;"></div></div></div></pre><p><span>  底层调用了一个start0()的方法</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="java"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="java"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.29412px; left: 8.02942px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">private</span> <span class="cm-keyword">native</span> <span class="cm-variable-3">void</span> <span class="cm-def">start0</span>();</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="display: none; height: 23px;"></div></div></div></pre><p><span>这个方法没有实现，但又不是接口，是使用native修饰的，是属于本地方法</span></p><h3 id='6）堆'><span>（6）堆</span></h3><p><img src="JVM.assets/image-20210507225258162.png" alt="image-20210507225258162" style="zoom: 67%;" /><span> </span></p><p><span>新new出来的对象放在Eden区</span></p><p><span>一个程序只要在运行，那么就不会不停的new对象，那么总有一刻Eden区会放满，那么一旦Eden区被放满之后，虚拟机会干什么呢？没错，就是gc，不过这里的gc属于minor gc，就是垃圾收集，来收集垃圾对象并清理的，那么什么是垃圾对象呢？</span></p><p><span>一个对象没有指针指向它-&gt;垃圾对象</span></p><p><span>经过一次minor GC后，没有被清理的对象移到From区，同时GC分代年龄+1</span></p><p><img src="JVM.assets/image-20210507234731264.png" alt="image-20210507234731264" style="zoom:67%;" /><span> </span></p><p><span>第二次，新的对象又把Eden区放满了，那么又会执行minor gc，但是这次会连着From区一起gc，然后将Eden区和From区存活的对象都移到To区域，对象头中分代年龄都+1</span></p><p><img src="JVM.assets/image-20210507234818500.png" alt="image-20210507234818500" style="zoom:67%;" /><span> </span></p><p><span>这样再一次Eden区又满时，minor gc就是回收Eden区和To区域了，TEden区和To区域还活着的对象就会都移到From区。</span></p><p><span>也就是说，Survivor区中总有一块区域是空着的，存活的对象存放是在From区和To区轮流存放，也就是互相复制拷贝，这也就是</span><strong><span>垃圾回收算法中的复制-回收算法</span></strong><span>。</span></p><p><span>如果</span><strong><span>一个对象经历了一个限值15次gc</span></strong><span>的时候，就会移至老年代。那</span><strong><span>如果还没有到限值，From区或者To区域也放不下了</span></strong><span>，就会直接挪到老年代，这只是举例了两种常规规则，还有其他规则也是会把对象存放至老年代的。</span></p><p><span>老年代满了，会发生Full GC</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="java"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="java"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.29412px; left: 8.02942px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">public</span> <span class="cm-keyword">class</span> <span class="cm-def">HeapTest</span> {</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable-3">byte</span>[] <span class="cm-variable">a</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable-3">byte</span>[<span class="cm-number">1024</span><span class="cm-operator">*</span><span class="cm-number">100</span>];</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">public</span> <span class="cm-keyword">static</span> <span class="cm-variable-3">void</span> <span class="cm-variable">main</span>(<span class="cm-variable-3">String</span>[] <span class="cm-variable">args</span>) <span class="cm-keyword">throws</span> <span class="cm-variable">InterruptedException</span> {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">ArrayList</span><span class="cm-operator">&lt;</span><span class="cm-variable">HeapTest</span><span class="cm-operator">&gt;</span> <span class="cm-variable">heapTest</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">ArrayList</span><span class="cm-operator">&lt;&gt;</span>();</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">while</span>(<span class="cm-atom">true</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">heapTest</span>.<span class="cm-variable">add</span>(<span class="cm-keyword">new</span> <span class="cm-variable">HeapTest</span>());</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">Thread</span>.<span class="cm-variable">sleep</span>(<span class="cm-number">10</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 226px;"></div><div class="CodeMirror-gutters" style="display: none; height: 226px;"></div></div></div></pre><p><span>这段代码里，死循环往list里添加新new出来的对象，这时总会出现老年代满的情况，而新new出来的HeapTest对象都是在HeapList里的，会被这个局部变量引用，那么Full GC 没有垃圾对象可以回收，而内存又满了。则</span><code>OutOfMemoryError</code><span>,OOM</span></p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><h1 id='2垃圾收集器与内存分配'><span>2.垃圾收集器与内存分配</span></h1><p>&nbsp;</p><p><strong><span>Blog: </span></strong><span> </span><a href='https://zhuanlan.zhihu.com/p/73628158'><strong><em><span>咱们从头到尾说一次 Java 垃圾回收</span></em></strong></a></p><h2 id='21对象已死'><span>2.1对象已死？</span></h2><p><span>堆中存放中Java世界中所有的对象实例，垃圾收集器在堆进行回收前，第一件事就是确定对象哪些死了，哪些活着</span></p><h3 id='1引用计数器法--reference-counting'><span>1.引用计数器法  </span><em><span>Reference Counting</span></em></h3><p><span>给对象添加一个引用计数器，每当有一个地方引用它时，计数器值就加1；当引用失效时，计数器值减1；任何时刻计数器都为0的对象就是不可能再被使用的</span></p><p><img src="JVM.assets/image-20210508103128764.png" alt="image-20210508103128764" style="zoom:67%;" /><span> </span></p><p><span>但是很难解决对象之间相互循环引用的问题</span></p><p><span>例：</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="java" style="break-inside: unset;"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="java"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.29412px; left: 8.02942px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">public</span> <span class="cm-keyword">class</span> <span class="cm-def">ReferenceCountingGC</span> {</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">public</span> <span class="cm-variable-3">Object</span> <span class="cm-variable">instance</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">public</span> <span class="cm-variable">ReferenceCountingGC</span>(<span class="cm-variable-3">String</span> <span class="cm-variable">name</span>){}</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">public</span> <span class="cm-keyword">static</span> <span class="cm-variable-3">void</span> <span class="cm-def">testGC</span>(){</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable">ReferenceCountingGC</span> <span class="cm-variable">a</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">ReferenceCountingGC</span>(); <span class="cm-comment">//a:1</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable">ReferenceCountingGC</span> <span class="cm-variable">b</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">ReferenceCountingGC</span>(); <span class="cm-comment">//b:1</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable">a</span>.<span class="cm-variable">instance</span> <span class="cm-operator">=</span> <span class="cm-variable">b</span>; <span class="cm-comment">// b:1+1=2</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable">b</span>.<span class="cm-variable">instance</span> <span class="cm-operator">=</span> <span class="cm-variable">a</span>; <span class="cm-comment">// a:1+1=2</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable">a</span> <span class="cm-operator">=</span> <span class="cm-atom">null</span>; <span class="cm-comment">//a:2-1=1</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable">b</span> <span class="cm-operator">=</span> <span class="cm-atom">null</span>; <span class="cm-comment">//a:2-1=1</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 339px;"></div><div class="CodeMirror-gutters" style="display: none; height: 339px;"></div></div></div></pre><p><span>实际上这两个对象已经不能再被访问，但是它们相互引用着对方，导致它们的引用计数都不为0，于是GC无法回收它们。</span></p><p>&nbsp;</p><h3 id='2根搜索算法-gc-roots-tracing'><span>2.根搜索算法 </span><em><span>GC Roots Tracing</span></em></h3><p><span>通过一系列名为</span><code>GC Roots</code><span>的对象作为起始点，从这些节点开始向下搜索，搜索走过的路径为引用链</span><code>Reference Chain</code><span>，当一个对象到</span><code>GC Roots</code><span>没有任何引用链相连（图论的角度：不可达），则此对象是不可用的。</span></p><p><strong><span>可作为 GC roots 的对象</span></strong></p><ul><li><strong><span>JVM栈（栈帧中本地变量表）中引用的对象</span></strong></li><li><strong><span>方法区中类静态属性引用的对象</span></strong></li><li><strong><span>方法区中常量引用的对象</span></strong></li><li><strong><span>本地方法栈中JNI（即一般说的Native方法）引用的对象</span></strong></li><li><strong><span>被同步锁持有的对象</span></strong></li></ul><p><img src="JVM.assets/image-20210508102759739.png" alt="image-20210508102759739" style="zoom: 80%;" /><span> </span></p><p>&nbsp;</p><h3 id='3引用'><span>3.引用</span></h3><p><span>引用分类，强度逐渐减弱：</span></p><ul><li><p><strong><span>强引用 </span><em><span>Strong Reference</span></em></strong><span> </span></p><p><span>类似</span><code>Object obj = new Object()</code><span>这类的引用。</span><strong><em><span>只要强引用还存在，GC就不会回收被引用的对象</span></em></strong></p></li><li><p><strong><span>软引用 </span><em><span>Soft Reference</span></em></strong><span> </span></p><p><span>描述一些还有用，但非必需的对象。</span><strong><em><span>对于软引用关联的对象，在系统将要发生内存溢出风险前，把这些对象列入回收范围进行二次回收。若这次回收仍无足够内存，抛出内存溢出异常</span></em></strong></p></li><li><p><strong><span>弱引用 </span><em><span>Weak Reference</span></em></strong></p><p><span>描述非必需对象，强度更弱。</span><strong><em><span>被弱引用关联的对象只能生存到下一次GC发生之前。</span></em></strong></p></li><li><p><strong><span>虚引用 </span><em><span>Phantom Reference</span></em></strong></p><p><span>最弱。</span><strong><em><span>一个对象是否有虚引用的存在，不会对其生存时间构成影响，也无法用虚引用取得一个对象实例。设置虚引用的唯一目的是希望这个对象被GC回收时收到一个系统通知</span></em><span>。</span></strong></p></li></ul><p><span>只用强引用才会导致内存泄露 </span><em><span>Memory Leak</span></em></p><p>&nbsp;</p><h3 id='4finalize-方法的两次标记过程'><span>4.finalize() 方法的两次标记过程</span></h3><p><span>进行根搜索后，如果没有与GC roots相连的引用链，第一次标记并筛选：</span></p><p><span>有必要执行</span><code>finalize()</code><span>:</span></p><ul><li><span>对象覆盖了</span><code>finalize()</code><span>方法</span></li><li><code>finalize()</code><span>方法没有被JVM调用过</span></li></ul><p><span>则对象被放在一个名为 </span><strong><em><span>F-QUEUE</span></em></strong><span> 的队列中，由</span><strong><span>JVM自动生成的、低优先级的Finalizer线程</span></strong><span>去执行，这里的执行是指，这个方法会被触发，但不一定会等它运行结束（如果一个对象在</span><code>finalize()</code><span>方法里执行缓慢或发生了死循环，那么会导致</span><strong><em><span>F-QUEUE</span></em></strong><span> 里的其他对象永久处于等待中，甚至导致GC崩溃）</span></p><p><span>在执行</span><code>finalize()</code><span>方法时，对象如果能够重新建立连接，那么该对象将摆脱这次回收，如果该对象没有重新建立连接，那么对该对象进行二次标记。二次标记的对象进行回收。</span></p><p><strong><em><span>JDK 1.8以上的版本此方法被遗弃</span></em></strong></p><p>&nbsp;</p><h2 id='22-垃圾收集算法'><span>2.2 垃圾收集算法</span></h2><h3 id='1标记-清除算法-mark-sweep'><span>1.标记-清除算法 </span><em><span>Mark-Sweep</span></em><span> </span></h3><p><span>最基础的收集算法（后面的都是基于此思路并对缺点改进而来）</span></p><p><span>对内存中的对象进行标记，属于可回收的就标记起来，然后进行清理，清理后的区域就变成未使用的内存区域</span></p><p><img src="JVM.assets/image-20210508154043852.png" alt="image-20210508154043852" style="zoom:67%;" /><span> </span></p><p><span>主要缺点：</span></p><ul><li><strong><span>效率问题</span></strong><span>：标记和清除的效率都不高</span></li><li><strong><span>空间问题</span></strong><span>：标记清除后会有大量的不连续的内存碎片，可能会导致：后续运行时若是分配较大对象时而无法找到足够的连续内存而不得不提前触发另一次垃圾收集动作</span></li></ul><h3 id='2复制算法-copying'><span>2.复制算法 </span><em><span>Copying</span></em></h3><p><span>将可用内存按容量划分为大小相等的两块，每次只使用其中的一块。当这一块的内存用完了，就将还存活着的对象复制到另外一块上面，然后再把已使用过的内存空间一次清理掉。保证了内存的连续可用，内存分配时也就不用考虑内存碎片等复杂情况，逻辑清晰，运行高效</span></p><p><img src="JVM.assets/image-20210508154919857.png" alt="image-20210508154919857" style="zoom:67%;" /><span> </span></p><p><span>但是代价是：内存缩小为以前的一半</span></p><p><em><span>现在的商业虚拟机都使用这种收集算法来回收新生代</span></em></p><h3 id='3标记---整理算法-mark-compact'><span>3.标记 - 整理算法 </span><em><span>Mark-Compact</span></em><span> </span></h3><p><span>标记过程和标记-清除算法相同，后续步骤而是让所有存活的对象都向一端移动，再清理掉端边界以外的内存区域</span></p><p><img src="JVM.assets/image-20210508155558118.png" alt="image-20210508155558118" style="zoom:67%;" /><span> </span></p><p><span>标记整理算法一方面在标记-清除算法上做了升级，解决了内存碎片的问题，也规避了复制算法只能利用一半内存区域的弊端。看起来很美好，但从上图可以看到，</span><strong><span>它对内存变动更频繁，需要整理所有存活对象的引用地址，在效率上比复制算法要差很多</span></strong><span>。</span></p><h3 id='4分代收集算法-generational-collection'><span>4.分代收集算法 </span><em><span>Generational Collection</span></em></h3><p><span>根据对象的存活周期的不同将内存分为几块</span></p><p><span>一般分为</span><strong><span>新生代</span></strong><span>和</span><strong><span>老年代</span></strong></p><p><strong><span>新生代中，每次收集都要大量对象死去，少量存活，故使用复制算法，只需付出少量存活对象的复制成本就可完成收集</span></strong></p><p><strong><span>老年代中，对象存活率高、没有额外空间对它进行分配担保，故使用 </span><em><span>Mark-Sweep</span></em><span> 或 </span><em><span>Mark-Compact</span></em><span> 进行回收</span></strong></p><p>&nbsp;</p><h2 id='23-垃圾回收器'><span>2.3 垃圾回收器</span></h2><p><span>回收算法是方法论，垃圾收集器是垃圾回收的具体实现</span></p><p><strong><span>新生代收集器</span></strong></p><ul><li><code>Serial</code></li><li><code>ParNew</code></li><li><code>Parallel Scvange</code></li></ul><p><strong><span>老年代收集器</span></strong></p><ul><li><code>Serial Old</code></li><li><code>Parallel Old</code></li><li><code>CMS</code></li></ul><p><span>对于整个Java堆</span></p><ul><li><code>G1</code><span>收集器</span></li></ul><p>&nbsp;</p><h3 id='1serial-收集器'><span>1.Serial 收集器 </span></h3><p><strong><span>新生代，复制算法</span></strong></p><p><span>单线程收集器：在进行垃圾收集时，必须暂停其他的工作线程</span></p><p><span>优点：简单高效（没有线程交互的开销）</span></p><p><img src="JVM.assets/image-20210508165418364.png" alt="image-20210508165418364" style="zoom: 67%;" /><span> </span></p><p><strong><span>Serial 收集器依然是虚拟机运行在Client 模式下默认新生代收集器</span></strong></p><p>&nbsp;</p><h3 id='2parnew-收集器'><span>2.ParNew 收集器</span></h3><p><strong><span>新生代，复制算法</span></strong></p><p><span>Serial 收集器的多线程版本</span></p><p><span>多线程并行</span></p><p><span>除了使用多线程进行垃圾收集之外，其余行为包括Serial收集器可用的所有控制参数、收集算法、Stop The World、对象分配规则、回收策略等都与Serial 收集器完全一样。</span><img src="JVM.assets/image-20210508172031793.png" alt="image-20210508172031793" style="zoom:67%;" /><span> </span></p><p>&nbsp;</p><p><span>这里：</span></p><ul><li><strong><span>并行 </span><em><span>Parallel</span></em></strong><span>：多条垃圾收集线程并行工作，用户线程仍处于等待</span></li><li><strong><span>并发 </span><em><span>Concurrent</span></em></strong><span>：用户和垃圾收集线程同时执行（不一定并行，可能是交替执行）</span></li></ul><p>&nbsp;</p><h3 id='3parallel-scavenge-收集器'><span>3.Parallel Scavenge 收集器</span></h3><p><strong><span>新生代，复制算法</span></strong></p><p><span>多线程并行</span></p><p><strong><span>吞吐量 </span><em><span>Throughput</span></em></strong><span> ：CPU用于运行用户代码和总消耗时间的比值</span></p><p><span>该收集器目标：</span><strong><span>达到一个可控制的吞吐量</span></strong></p><p><strong><span>吞吐量优先：追求高吞吐量，高效利用 CPU</span></strong><span>    主要适合在后台运算而不需要太多交互的任务。</span></p><p><span>有两个参数用于精确控制吞吐量</span></p><ul><li><strong><em><span>-XX: MaxGCPauseMillis</span></em></strong><span>  控制最大垃圾收集停顿时间</span></li><li><strong><em><span>-XX: GCTimeRatio</span></em></strong><span> 控制吞吐量大小</span></li></ul><p>&nbsp;</p><h3 id='4serialold-收集器'><span>4.SerialOld 收集器</span></h3><p><strong><span>老年代，标记-整理算法</span></strong></p><p><span>Serial Old是Serial收集器的老年代版本，它同样是一个单线程(串行)收集器</span></p><p><span>这个收集器的主要意义也是在于</span><strong><span>给Client模式下的虚拟机使用</span></strong><span>。</span></p><p><strong><span>如果在Server模式下，主要两大用途：</span></strong></p><p><span>（1）在JDK1.5以及之前的版本中与Parallel Scavenge收集器搭配使用</span></p><p><span>（2）作为CMS收集器的后备预案，在并发收集发生</span><strong><span>Concurrent Mode Failure</span></strong><span>时使用</span></p><p>&nbsp;</p><h3 id='5parallel-old-收集器'><span>5.Parallel Old 收集器</span></h3><p><strong><span>老年代，标记-整理算法</span></strong></p><p><span>多线程并行</span></p><p><span>Parallel Old 是Parallel Scavenge收集器的老年代版本，</span></p><p><span>这个收集器在1.6中才开始提供。</span></p><p>&nbsp;</p><h3 id='6cms-收集器-concurrent-mark-sweep'><span>6.CMS 收集器 </span><em><span>Concurrent Mark Sweep</span></em></h3><p><strong><span>标记-清除算法</span></strong></p><p><span>是一种以</span><strong><span>获取最短回收停顿时间为目标</span></strong><span>的收集器。适用于</span><strong><span>重视响应时间</span></strong><span>的应用场景</span></p><p><span>分为四个步骤</span></p><ol start='' ><li><strong><span>初始标记</span></strong><span> </span><strong><em><span>CMS Initial mark</span></em></strong></li><li><strong><span>并发标记 </span><em><span>CMS concurrent mark</span></em></strong></li><li><strong><span>重新标记 </span><em><span>CMS remark</span></em></strong></li><li><strong><span>并发清除 </span><em><span>CMS concurrent sweep</span></em></strong></li></ol><p><img src="JVM.assets/image-20210508200344347.png" referrerpolicy="no-referrer" alt="image-20210508200344347"></p><p><span>初始标记、重新标记仍需要Stop The World</span></p><ul><li><span>初始标记：标记GC Roots能直接关联到的对象</span></li><li><span>并发标记：GC Roots Tracing过程（时间最长）</span></li><li><span>重新标记：修正并发标记期间，因用户程序继续运行而导致标记产生改变的那一部分对象的标记（比初始标记时间稍长，远比并发标记短）</span></li><li><span>并发清除</span></li></ul><p><span>在耗时最长的并发标记和并发清除过程中，收集器线程和用户线程一起工作</span></p><p><strong><span>优点：并发收集、低停顿</span></strong></p><p><strong><span>缺点：</span></strong></p><ul><li><p><strong><span>对CPU资源敏感</span></strong></p><p><span>并发过程中，不导致用户线程停顿，但是占用了一部分线程（CPU资源）导致总吞吐量降低</span></p><p><span>CMS默认开启的回收线程数是（CPU数量+3）/4。CPU数量低于4个时，影响较大</span></p></li><li><p><strong><span>无法处理浮动垃圾</span></strong></p><p><span>CMS并发清理阶段用户线程还在运行，还有新的垃圾产生，只能等下次GC时清理，所以要预留足够内存空间给用户线程使用，不像其他收集器是等到老年代几乎全满才收集</span></p><p><strong><em><span>-XX: CMSInitiatingOccupancyFraction</span></em></strong><span> </span><strong><span>设置进行回收时的垃圾空间占比</span></strong></p><p><span>要是预留的内存无法满足程序需要，会导致</span><strong><em><span>Concurrent Mode Failure</span></em></strong><span>，这时临时启用</span><strong><em><span>SerialOld</span></em></strong><span> 来进行老年代的垃圾收集</span></p></li><li><p><strong><span>产生大量空间碎片</span></strong></p><p><strong><em><span>-XX: +UseCMSCompactAtFullCollection 开关</span></em></strong><span> FullGC 后进行碎片整理，整理过程无法并发 </span></p></li></ul><p><span>因为会标记-清除产生大量的内存碎片，不适合新生代</span></p><p>&nbsp;</p><p><span>在G1提出之前，经典的垃圾收集器主要有三种类型：串行收集器、并行收集器和并发标记清除收集器，这三种收集器分别可以是满足Java应用三种不同的需求：内存占用及并发开销最小化、应用吞吐量最大化和应用GC暂停时间最小化，但是，上述三种垃圾收集器都有几个共同的问题：（1）所有针对老年代的操作必须扫描整个老年代空间；（2）年轻地和老年代是独立的连续的内存块，必须先决定年轻代和老年代在虚拟地址空间的位置</span></p><p>&nbsp;</p><h3 id='7g1收集器--garbage-first'><strong><span>7.G1收集器  </span><em><span>Garbage First</span></em></strong></h3><p><a href='https://zhuanlan.zhihu.com/p/22591838'><span>Java Hotspot G1 GC的一些关键技术</span></a></p><p><a href='https://zhuanlan.zhihu.com/p/54048685'><span>可能是最全面的G1学习笔记</span></a></p><p><a href='https://zhuanlan.zhihu.com/p/87770882'><span>弄明白CMS和G1，就靠这一篇了</span></a></p><p><span>G1是一种服务端应用使用的垃圾收集器，目标是用在</span><strong><span>多核、大内存</span></strong><span>的机器上，它在大多数情况下可以实现指定的GC暂停时间，同时还能保持较高的吞吐量</span></p><p><span>G1将整个堆分成相同大小的</span><strong><span>分区（Region）</span></strong></p><p>&nbsp;</p><p><span>cms相对于g1来说，g1实现更加复杂，如卡表，卡表维护，同样的程序使用g1会比cms多消耗20%的内存和额外的执行负载。第二：选择收集器三大指标：延迟，吞吐量，内存占用。内存占用就不说了，再来说一下延迟，cms是标记-清除算法，想想就明白了，标记了直接清除掉就ok，g1是标记-整理，每次清除都需要整理，所以说cms更加适用在B/S系统中，但是cms标记-清除带来的缺点就是产生内存碎片，不过可以通过jvm参数实现当达到一定数量的内存碎片进行一次整理。关于浮动垃圾，可以预留内存空间供用户线程使用。相对于g1来说，jdk官方推荐，region分区、可预测停顿模型、按收益动态确定回收集。所以说cms目前在很多大厂都有在使用的，就笔者经验来看：在小内存4G左右且应用响应优先cms优于g1，在大内存8G应用g1有更大的优势，以及ZGC则应用于更大内存应用中</span></p><p>&nbsp;</p><h2 id='24内存分配和回收策略'><span>2.4内存分配和回收策略</span></h2><h3 id='1对象优先在eden分配'><span>1.对象优先在Eden分配</span></h3><p><span>当Eden没有足够空间进行分配时，进行Minor GC</span></p><p>&nbsp;</p><h3 id='2大对象直接进入老年代'><span>2.大对象直接进入老年代</span></h3><p><span>对于需要大量连续内存空间的Java对象</span></p><p><span>这样是为了避免在Eden和两个Survivor之间发生大量的内存拷贝（新生区使用复制算法）</span></p><p>&nbsp;</p><h3 id='3长期存活的对象进入老年代'><span>3.长期存活的对象进入老年代</span></h3><p><span>虚拟机给每个对象定义一个对象年龄计数器</span></p><p><span>在Eden经过一个Minor GC后，仍存活并被Survivor容纳时，被移动到Survivor区，对象年龄为1.</span></p><p><span>之后每熬过一次Minor GC，年龄加1。</span></p><p><span>到了一定程度（默认15岁），进入老年代</span></p><p>&nbsp;</p><h3 id='4动态对象年龄判定'><span>4.动态对象年龄判定</span></h3><p><span>如果在Survivor区中相同年龄所有对象大小的总和大于Survivor空间的一半，年龄大于或等于该年龄的对象可以直接进入老年代，无须等到默认年龄</span></p><p>&nbsp;</p><h3 id='5空间分配担保'><span>5.空间分配担保</span></h3><p><span>新生代使用复制分配算法，需要Survivor中的其中一个进行轮换备份</span></p><p><span>但是有大量对象在Minor GC后仍然存活的话，就需要老年代进行分配担保，让Survivor无法容纳 的对象直接进入老年代</span></p><p>&nbsp;</p><p><span>Survivor区的存在意义就是减少送往老年代的对象，减少Major GC的发生</span></p><p><span>两个区以适应复制算法，解决内存碎片化的问题</span></p><p>&nbsp;</p><h1 id='3虚拟机执行子系统'><span>3.虚拟机执行子系统</span></h1><p><span>实现语言无关性：虚拟机和字节码存储格式</span></p><p><img src="JVM.assets/image-20210509144615504.png" alt="image-20210509144615504" style="zoom:50%;" /><span> </span></p><p><span> </span></p><h2 id='31-类文件结构'><span>3.1 类文件结构</span></h2><p><span>Class 文件是一组以8位字节位为基础的二进制流</span></p><p><span>Class文件是一种伪结构：</span><strong><span>无符号数</span></strong><span>、</span><strong><span>表</span></strong></p><p><strong><span>无符号数：</span></strong></p><p><span>	</span><span>u1、u2、u4、u8： 1个、2个、4个、8个字节的无符号数</span></p><p><strong><span>表：</span></strong></p><p><span>	</span><span>由许多无符号数和其他表作为数据项构成的复合数据结构，以 “_info” 结尾</span></p><p><span>	</span><span>整个Class文件本质上就是一张表</span></p><p><img src="JVM.assets/image-20210509201840150.png" alt="image-20210509201840150" style="zoom:67%;" /><span> </span></p><p>&nbsp;</p><h3 id='1魔数和class文件的版本'><span>1.魔数和Class文件的版本</span></h3><p><span>头4个字节是魔数，Magic Word，用于确定这个文件是否为一个能被虚拟机接受的Class文件</span></p><p><span>魔数后4个字节是Class文件的版本号，5、6：次版本号；7、8：主版本号</span></p><p><span>例：0x CA FE BA BE 00 00 00 32 ：主版本号50</span></p><p><span> </span></p><h3 id='2常量池'><span>2.常量池</span></h3><p><span>常量池中的常量的数量是不固定的，入口处放一个u2的 </span><code>constant_pool_count</code><span>，代表常量池容量计数值</span></p><p><strong><span>从1开始</span></strong></p><p><span>例：00 16 即十进制的22，表示常量池中有21项常量，索引：1~21</span></p><p><span>常量池中主要存放：</span></p><p><strong><span>字面量 Literal 、符号引用 Symbolic Reference</span></strong></p><ul><li><p><strong><span>字面量</span></strong></p><p><strong><span>如文本字符串、被声明为final的常量值等</span></strong></p></li><li><p><strong><span>符号引用</span></strong></p><ul><li><strong><span>类和接口的全限定名</span></strong></li><li><strong><span>字段的名称和描述符</span></strong></li><li><strong><span>方法的名称和描述符</span></strong></li></ul></li></ul><p><strong><span>虚拟机在加载Class文件时进行动态连接，故Class文件中不会保存各个方法和字段的最终内存布局信息。当虚拟机运行时，需要从常量池中获得对应的符号引用，再在类创建或运行时解析并翻译到具体的内存地址之中</span></strong></p><p>&nbsp;</p><h3 id='3访问标志'><span>3.访问标志</span></h3><p><span>u2，识别一些类与接口 层次的访问信息</span></p><p>&nbsp;</p><h3 id='4类索引父类索引与接口索引集合'><span>4.类索引、父类索引与接口索引集合</span></h3><p><span>类索引、父类索引 u2；接口索引集合 u2类型数据的集合</span></p><p><span>类索引：用于确定这个类的全限定名</span></p><p><span>父类索引：除了Object类为0 </span></p><p><span>接口索引集合 ：描述这个接口实现了哪些接口</span></p><p><span>索引为0说明没有引用</span></p><p><span>这里的索引指向常量池中的字符引用</span></p><p>&nbsp;</p><h3 id='5字段表集合'><span>5.字段表集合</span></h3><h3 id='6方法表集合'><span>6.方法表集合</span></h3><h3 id='7属性表集合'><span>7.属性表集合</span></h3><p>&nbsp;</p><p>&nbsp;</p><h2 id='32-虚拟机类加载机制'><span>3.2 虚拟机类加载机制</span></h2><p>&nbsp;</p><p><span>虚拟机如何加载 Class 文件？</span></p><p><span>类加载机制：虚拟机把描述类的数据从 Class 文件加载到内存，并对数据进行校验、转换解析和初始化，最终形成可被虚拟机直接使用的Java类型</span></p><p><span>动态加载，动态连接</span></p><p><img src="JVM.assets/image-20210509162719660.png" alt="image-20210509162719660" style="zoom: 67%;" /><span> </span></p><p><span>加载、验证、准备、初始化、卸载这五个阶段顺序是确定的，但是解析不一定，有时可以在初始化之后再进行</span></p><p>&nbsp;</p><p><span>有四种情况需要立即对类进行初始化：（主动引用：进行初始化）</span></p><p><span>1）遇到new、getstatic、putstatic、invokestatic这四条字节码指令时，若类没有初始化，则触发初始化</span></p><p><span>	</span><span>对应的场景：new一个对象、读取或设置一个类的静态字段（final修饰、已在编译期把结果常量池的静态字段除外）</span></p><p><span>2）用 java.lang.reflect 包中的方法对类进行发射调用时</span></p><p><span>3）初始化一个类时，其父类还没进行初始化，则先出发对其父类的初始化</span></p><p><span>4）虚拟机启动时，先进行主类的初始化（main方法所在的类）</span></p><p><span>不会发生类的初始化（被动引用）</span></p><p><img src="JVM.assets/image-20210717160125501.png" alt="image-20210717160125501" style="zoom:67%;" /><span> </span></p><p>&nbsp;</p><p><img src="JVM.assets/image-20210717153041213.png" referrerpolicy="no-referrer" alt="image-20210717153041213"></p><h3 id='1加载'><span>1.加载</span></h3><ol start='' ><li><span>通过类的全限定名获取定义此类的二进制字节流</span></li><li><span>将这个字节流所代表的静态存储结构转化为方法区的运行时数据结构</span></li><li><span>在Java 堆里生成一个代表此类的Java.lang.Class 对象，作为方法区数据的访问入口</span></li></ol><p>&nbsp;</p><p><span>连接 Linking：</span></p><h3 id='2验证'><span>2.验证</span></h3><ol start='' ><li><p><span>文件格式验证</span></p><p><span>验证字节流是否符合Class文件格式规范，能否被虚拟机处理</span></p></li><li><p><span>语义验证（元数据验证）</span></p></li><li><p><span>字节码验证</span></p><p><span>数据流和控制流分析</span></p><p><span>上面语义验证后，这里主要检查方法题：例如：类型转化是否有效、会不会跳转到方法体以外的字节码指令上等</span></p></li><li><p><span>符号引用验证</span></p></li></ol><h3 id='3准备'><span>3.准备</span></h3><p><span>正式为类变量分配内存（static 修饰的）并设置类变量初始值（static final修饰的）</span></p><p><span>例：public static int value  = 123 ：指分配内存，而初始值为默认零值0</span></p><p><span>		</span><span>public static final int value = 123：则在准备阶段直接初始化为123</span></p><h3 id='4解析'><span>4.解析</span></h3><p><span>将常量池中的符号引用替换为直接引用的过程</span></p><p><span>符号引用：与虚拟机实现的内存布局无关，引用的目标不一定已经加载到内存中</span></p><p><span>直接引用：与虚拟机实现的的内存布局相关，引用的目标已经在内存中存在</span></p><p>&nbsp;</p><h3 id='5初始化'><span>5.初始化</span></h3><p><span>clinit 方法：</span></p><p><span>将静态代码块合并起来，作为一个clinit方法，然后进行初始化</span></p><p><span>主要执行所有类变量的初始化和静态代码块</span></p><p><span>同时虚拟机会保证在子类初始化操作之前完成父类（接口除外，接口只有在直接使用到接口的静态属性时候才会初始化）的初始化。</span></p><p>&nbsp;</p><h2 id='33类加载器'><span>3.3类加载器</span></h2><p><strong><span>Blog</span></strong><span>：</span><a href='https://zhuanlan.zhihu.com/p/51374915'><span>老大难的 Java ClassLoader 再不理解就老了</span></a></p><p><img src="JVM.assets/image-20210509212705124.png" alt="image-20210509212705124" style="zoom:67%;" /><span> </span></p><h3 id='1类与类加载器'><span>1.类与类加载器</span></h3><p><span>类加载器实现：通过一个类的全限定名来获取描述此类的二进制字节流</span></p><p><span>两个类只有类源于同一个Class文件且类加载器相同，才相同</span></p><p>&nbsp;</p><ul><li><p><span>每个 Class 对象的内部都有一个 classLoader 字段来标识自己是由哪个 ClassLoader 加载的。ClassLoader 就像一个容器，里面装了很多已经加载的 Class 对象。</span></p></li><li><p><span>延迟加载</span></p><p><span>JVM 运行并不是一次性加载所需要的全部类的，它是按需加载，也就是延迟加载。程序在运行的过程中会逐渐遇到很多不认识的新类，这时候就会调用 ClassLoader 来加载这些类。加载完成后就会将 Class 对象存在 ClassLoader 里面，下次就不需要重新加载了。</span></p><p><span>比如你在调用某个类的静态方法时，首先这个类肯定是需要被加载的，但是并不会触及这个类的实例字段，那么实例字段的类别 Class 就可以暂时不必去加载，但是它可能会加载静态字段相关的类别，因为静态方法会访问静态字段。而实例字段的类别需要等到你实例化对象的时候才可能会加载。</span></p></li></ul><p>&nbsp;</p><h3 id='2类加载器类型'><span>2.类加载器类型</span></h3><ol start='' ><li><p><strong><em><span>BootStrap ClassLoader</span></em></strong><span> </span></p><p><strong><span>启动类加载器</span></strong><span>（根加载器），C++实现，是虚拟机的一部分</span></p><p><span>负责加载核心类，如 &lt;JAVA_HOME&gt;\lib 目录中的，</span><em><span>java.lang.</span></em><span>,</span><em><span>java.io.</span></em><span>等</span></p></li><li><p><strong><em><span>Extension ClassLoader</span></em></strong></p><p><strong><span>扩展类加载器</span></strong><span>，加载JVM扩展类，</span></p><p><span>如 &lt;JAVA_HOME&gt;\lib\ext 目录中的，Swing系列等等</span></p></li><li><p><strong><em><span>AppClassLoader</span></em></strong></p><p><strong><span>系统类加载器</span></strong><span>，</span></p><p><span>会加载 Classpath 环境变量（用户类路径）里定义的路径中的 jar 包和目录</span></p><p><span>可以由 ClassLoader 类提供的静态方法 getSystemClassLoader() 得到</span></p></li></ol><p><strong><span>ClassLoader 传递性</span></strong></p><p><span>程序在运行过程中，遇到了一个未知的类，它会选择哪个 ClassLoader 来加载它呢？</span></p><p><strong><span>虚拟机的策略是使用调用者 Class 对象的 ClassLoader 来加载当前未知的类。</span></strong><span>何为调用者 Class 对象？就是在遇到这个未知的类时，虚拟机肯定正在运行一个方法调用（静态方法或者实例方法），这个方法挂在哪个类上面，那这个类就是调用者 Class 对象。前面我们提到每个 Class 对象里面都有一个 classLoader 属性记录了当前的类是由谁来加载的。</span></p><p><span>因为 ClassLoader 的传递性，所有延迟加载的类都会由初始调用 main 方法的这个 ClassLoader 全全负责，它就是 AppClassLoader。</span></p><p>&nbsp;</p><h3 id='2双亲委派'><span>2.双亲委派</span></h3><p><strong><span>AppClassLoader 只负责加载 Classpath 下面的类库，如果遇到没有加载的系统类库怎么办，AppClassLoader 必须将系统类库的加载工作交给 BootstrapClassLoader 和 ExtensionClassLoader 来做</span></strong><span>，这就是我们常说的「双亲委派」。</span></p><p><img src="JVM.assets/image-20210509222502424.png" alt="image-20210509222502424" style="zoom: 50%;" /><span> </span><img src="JVM.assets/image-20210509222805969.png" alt="image-20210509222805969" style="zoom: 80%;" /></p><p><strong><span>一个类加载器收到了类加载的请求，它自己不会去尝试加载这个类，而是交给父加载器去完成</span></strong></p><p><span>每个 ClassLoader 对象内部都会有一个 parent 属性指向它的父加载器。</span></p><p><strong><span>parent == null，表示其父加载器为根加载器（虚线）</span></strong></p><p>&nbsp;</p><p><strong><span>自定义加载类</span></strong></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="java" style="break-inside: unset;"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="java"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.29412px; left: 8.02942px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><span><span>​</span>x</span></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">class</span> <span class="cm-def">ClassLoader</span> {</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-comment">// 加载入口，定义了双亲委派规则</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable">Class</span> <span class="cm-variable">loadClass</span>(<span class="cm-variable-3">String</span> <span class="cm-variable">name</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// 是否已经加载了</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">Class</span> <span class="cm-variable">t</span> <span class="cm-operator">=</span> <span class="cm-keyword">this</span>.<span class="cm-variable">findFromLoaded</span>(<span class="cm-variable">name</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">if</span>(<span class="cm-variable">t</span> <span class="cm-operator">==</span> <span class="cm-atom">null</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-comment">// 交给双亲</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-variable">t</span> <span class="cm-operator">=</span> <span class="cm-keyword">this</span>.<span class="cm-variable">parent</span>.<span class="cm-variable">loadClass</span>(<span class="cm-variable">name</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">if</span>(<span class="cm-variable">t</span> <span class="cm-operator">==</span> <span class="cm-atom">null</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-comment">// 双亲都不行，只能靠自己了</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-variable">t</span> <span class="cm-operator">=</span> <span class="cm-keyword">this</span>.<span class="cm-variable">findClass</span>(<span class="cm-variable">name</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable">t</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-comment">// 交给子类自己去实现</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable">Class</span> <span class="cm-variable">findClass</span>(<span class="cm-variable-3">String</span> <span class="cm-variable">name</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">throw</span> <span class="cm-variable">ClassNotFoundException</span>();</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-comment">// 组装Class对象</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable">Class</span> <span class="cm-variable">defineClass</span>(<span class="cm-variable-3">byte</span>[] <span class="cm-variable">code</span>, <span class="cm-variable-3">String</span> <span class="cm-variable">name</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable">buildClassFromCode</span>(<span class="cm-variable">code</span>, <span class="cm-variable">name</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">class</span> <span class="cm-def">CustomClassLoader</span> <span class="cm-keyword">extends</span> <span class="cm-variable">ClassLoader</span> {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable">Class</span> <span class="cm-variable">findClass</span>(<span class="cm-variable-3">String</span> <span class="cm-variable">name</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// 寻找字节码</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable-3">byte</span>[] <span class="cm-variable">code</span> <span class="cm-operator">=</span> <span class="cm-variable">findCodeFromSomewhere</span>(<span class="cm-variable">name</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// 组装Class对象</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-keyword">this</span>.<span class="cm-variable">defineClass</span>(<span class="cm-variable">code</span>, <span class="cm-variable">name</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 836px;"></div><div class="CodeMirror-gutters" style="display: none; height: 836px;"></div></div></div></pre><ul><li><p><code>loadClass</code><span> 返回一个加载的Class方法：</span></p><p><span>先看有没有加载，没有就交给parent，调用 parent.findClass 去加载，如果parent加载不了，就自己加载，使用自己的 findClass方法</span></p></li><li><p><code>findClass</code><span> </span></p><p><span>ClassLoader 的 findClass() 方法是需要子类来覆盖的</span></p><p><strong><span>不同的加载器将使用不同的逻辑来获取目标类的字节码</span></strong><span>。</span></p></li><li><p><code>defineClass</code></p><p><span>将字节码转换成 Class 对象</span></p></li></ul><p><span>自定义加载器不要轻易覆盖 loadClass 方法。否则可能会导致自定义加载器无法加载内置的核心类库。在使用自定义加载器时，要明确好它的父加载器是谁，将父加载器通过子类的构造器传入。如果父类加载器是 null，那就表示父加载器是「根加载器」</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="java"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="java"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.29412px; left: 8.02942px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">// ClassLoader 构造器</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">protected</span> <span class="cm-variable">ClassLoader</span>(<span class="cm-variable-3">String</span> <span class="cm-variable">name</span>, <span class="cm-variable">ClassLoader</span> <span class="cm-variable">parent</span>);</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 45px;"></div><div class="CodeMirror-gutters" style="display: none; height: 45px;"></div></div></div></pre><p>&nbsp;</p><h2 id='classforname-vs-classloaderloadclass'><strong><span>Class.forName vs ClassLoader.loadClass</span></strong></h2><p><span>这两个方法都可以用来加载目标类，它们之间有一个小小的区别：</span></p><p><a href='https://blog.csdn.net/attis_wong/article/details/83983021' target='_blank' class='url'>https://blog.csdn.net/attis_wong/article/details/83983021</a></p><p><span>		</span></p><p>&nbsp;</p><p>&nbsp;</p></div></div>
+</body>
+</html>
